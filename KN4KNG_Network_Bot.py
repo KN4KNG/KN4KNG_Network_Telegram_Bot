@@ -35,6 +35,8 @@ import os
 
 approved_users = ['{USER ID HERE}','{USER ID HERE}','{USER ID HERE}',]
 asl_node = '{ENTER ASL Public Node}'
+bot_token = '{ENTER BOT TOKEN}'
+
 # Enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -98,15 +100,10 @@ async def connect_asl(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         except (IndexError, ValueError):
             await update.effective_message.reply_text("Usage: /connect_asl <node>")
 
-#async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-#    """Echo the user message."""
-#    await update.message.reply_text(update.message.text)
-
-
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("{TOKEN}").build()
+    application = Application.builder().token(bot_token).build()
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
