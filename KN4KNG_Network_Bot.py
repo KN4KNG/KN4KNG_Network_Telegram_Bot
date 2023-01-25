@@ -111,9 +111,6 @@ def main() -> None:
     application.add_handler(CommandHandler("drop_asl", drop_asl))
     application.add_handler(CommandHandler("connect_asl", connect_asl))
 
- #   # on non command i.e message - echo the message on Telegram
- #   application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
-
     # Run the bot until the user presses Ctrl-C
     application.run_polling()
 
